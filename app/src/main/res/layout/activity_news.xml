@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".NewsActivity">
+
+    <!--  Toolbar  -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/news_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:navigationIcon="@drawable/ic_arrow_back_24"
+            app:title="@string/title_text_news"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/activity_vertical_margin"
+            android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+            android:orientation="vertical">
+
+            <!--  Title  -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/news_title_textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/activity_vertical_margin"
+                android:text="@string/text_title"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+
+            <!--  Date  -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/activity_vertical_margin"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/text_published_at"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/news_date_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+                    android:gravity="center"
+                    android:text="@string/text_date"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+            </LinearLayout>
+
+            <!--  Image  -->
+            <ImageView
+                android:id="@+id/news_imageView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/news_image_size"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginVertical="@dimen/activity_vertical_margin"
+                android:src="@drawable/ic_image_256"
+                android:visibility="gone"
+                android:contentDescription="@string/content_text_image" />
+
+            <!--  Description  -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/news_description_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginVertical="@dimen/activity_vertical_margin"
+                android:text="@string/text_description"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2" />
+
+            <!--  Open browser button  -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/news_open_browser_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_vertical_large"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/button_text_open_browser"
+                android:paddingHorizontal="30dp"
+                android:paddingVertical="12dp"
+                android:textAllCaps="false" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

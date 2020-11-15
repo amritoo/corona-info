@@ -1,5 +1,6 @@
 package app.coronainfo.coronainfo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -36,13 +37,13 @@ public class MainActivity extends AppCompatActivity {
                         System.out.println("News clicked");
                         break;
                     case R.id.menu_settings:
-                        System.out.println("Settings clicked");
+                        startActivity(createIntent(SettingsActivity.class));
                         break;
                     case R.id.menu_help:
                         System.out.println("Help clicked");
                         break;
                     case R.id.menu_about:
-                        System.out.println("About  clicked");
+                        startActivity(createIntent(AboutActivity.class));
                         break;
                     default:
                         return false;
@@ -50,5 +51,9 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+
+    private Intent createIntent(Class<?> className) {
+        return new Intent(this, className);
     }
 }
