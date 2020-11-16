@@ -21,4 +21,10 @@
             style="@style/Widget.MaterialComponents.Toolbar.Primary" />
     </com.google.android.material.appbar.AppBarLayout>
 
+    <LinearLayout
+        android:id="@+id/fragment_placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" />
+
 </LinearLayout>

@@ -31,4 +31,6 @@
     <string name="text_published_at">Published at:</string>
     <string name="text_title">Title</string>
     <string name="text_country">Country</string>
+    <string name="text_unknown">Unknown</string>
+    <string name="text_global">Global</string>
 </resources>

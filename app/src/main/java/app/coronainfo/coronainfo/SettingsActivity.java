@@ -16,21 +16,21 @@ import androidx.appcompat.app.AppCompatDelegate;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.switchmaterial.SwitchMaterial;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class SettingsActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    private String TAG = "SettingsActivity";
+    private final String TAG = "SettingsActivity";
     private SharedPreferences preferences;
     private boolean first;
-    private ArrayList<String> countries;
+    private List<String> countries;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        this.countries = Manager.countries;
+        this.countries = new Manager(this).getAllCountryList();
         this.preferences = getSharedPreferences(Constants.PREFERENCE_FILE_NAME, MODE_PRIVATE);
 
         MaterialToolbar toolbar = findViewById(R.id.settings_toolbar);
@@ -71,7 +71,7 @@ public class SettingsActivity extends AppCompatActivity implements AdapterView.O
 
     private int getPosition() {
         first = true;
-        String saved = preferences.getString(Constants.HOME_COUNTRY, "Default");
+        String saved = preferences.getString(Constants.HOME_COUNTRY_CODE, "Default");
         int pos = countries.indexOf(saved);
         return Math.max(pos, 0);
     }
@@ -82,7 +82,7 @@ public class SettingsActivity extends AppCompatActivity implements AdapterView.O
             first = false;
         } else {
             SharedPreferences.Editor editor = preferences.edit();
-            editor.putString(Constants.HOME_COUNTRY, String.valueOf(parent.getItemAtPosition(position)));
+            editor.putString(Constants.HOME_COUNTRY_CODE, String.valueOf(parent.getItemAtPosition(position)));
             editor.apply();
             Log.i(TAG, "saveHomeCountry:saved");
         }

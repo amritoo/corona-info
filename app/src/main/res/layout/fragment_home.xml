@@ -17,16 +17,310 @@
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <!--  Country name  -->
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/home_country_textView"
+            <!--  Country  -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_marginVertical="@dimen/activity_vertical_margin"
-                android:text="@string/text_country"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5" />
+                android:orientation="vertical">
 
+                <!--  Country name  -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/home_country_textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginVertical="@dimen/activity_vertical_margin"
+                    android:text="@string/text_country"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5" />
+
+                <!--  New Confirmed  -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/activity_vertical_margin"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="New Confirmed:"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/country_confirmed_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+                        android:text="@string/text_unknown"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                </LinearLayout>
+
+                <!--  New Deaths  -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/activity_vertical_margin"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="New Deaths:"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/country_death_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+                        android:text="@string/text_unknown"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                </LinearLayout>
+
+                <!--  Total Confirmed  -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/activity_vertical_margin"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total Confirmed:"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/country_total_confirmed_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+                        android:text="@string/text_unknown"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                </LinearLayout>
+
+                <!--  Total Deaths  -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/activity_vertical_margin"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total Deaths:"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/country_total_death_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+                        android:text="@string/text_unknown"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                </LinearLayout>
+
+                <!--  Total Recovered  -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/activity_vertical_margin"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total Recovered:"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/country_total_recovered_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+                        android:text="@string/text_unknown"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                </LinearLayout>
+
+                <!--  Active Cases  -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/activity_vertical_margin"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Active Cases:"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/country_active_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+                        android:text="@string/text_unknown"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--  Global  -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginVertical="@dimen/activity_vertical_margin"
+                    android:text="@string/text_global"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5" />
+
+                <!--  New Confirmed  -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/activity_vertical_margin"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="New Confirmed:"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/global_confirmed_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+                        android:text="@string/text_unknown"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                </LinearLayout>
+
+                <!--  New Deaths  -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/activity_vertical_margin"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="New Deaths:"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/global_death_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+                        android:text="@string/text_unknown"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                </LinearLayout>
+
+                <!--  Total Confirmed  -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/activity_vertical_margin"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total Confirmed:"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/global_total_confirmed_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+                        android:text="@string/text_unknown"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                </LinearLayout>
+
+                <!--  Total Deaths  -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/activity_vertical_margin"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total Deaths:"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/global_total_death_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+                        android:text="@string/text_unknown"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                </LinearLayout>
+
+                <!--  Total Recovered  -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/activity_vertical_margin"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total Recovered:"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/global_total_recovered_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+                        android:text="@string/text_unknown"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                </LinearLayout>
+
+                <!--  Active Cases  -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/activity_vertical_margin"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Active Cases:"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/global_active_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+                        android:text="@string/text_unknown"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--  date  -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/home_date_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="@string/text_date"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
         </LinearLayout>
     </ScrollView>
 
