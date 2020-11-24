@@ -1,4 +1,4 @@
-package app.coronainfo.coronainfo;
+package app.coronainfo.coronainfo.model;
 
 import android.util.Log;
 
@@ -18,15 +18,19 @@ public class News {
         this.url = url;
         this.urlToImage = urlToImage;
         this.title = title;
+        this.date = date;
         this.description = description;
-        // format date
-        try {
-            SimpleDateFormat input = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault());
-            Date d = input.parse(date);
-            this.date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(d);
-        } catch (ParseException e) {
-            Log.e("States", "dateParseError", e);
-        }
+    }
+
+    @Override
+    public String toString() {
+        return "News{" +
+                "url='" + url + '\'' +
+                ", urlToImage='" + urlToImage + '\'' +
+                ", title='" + title + '\'' +
+                ", date='" + date + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 
     public String getUrl() {
@@ -55,6 +59,18 @@ public class News {
 
     public String getDate() {
         return date;
+    }
+
+    public String getDateFormatted() {
+        String res = "";
+        try {
+            SimpleDateFormat input = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault());
+            Date d = input.parse(date);
+            res = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(d);
+        } catch (ParseException e) {
+            Log.e("News", "getDateFormatted:dateParseError", e);
+        }
+        return res;
     }
 
     public void setDate(String date) {

@@ -1,4 +1,4 @@
-package app.coronainfo.coronainfo;
+package app.coronainfo.coronainfo.model;
 
 import android.util.Log;
 
@@ -10,7 +10,7 @@ import java.util.Locale;
 public class States {
 
     private int totalConfirmed, totalDeath, totalRecovered, newConfirmed, newDeath, activeCase;
-    private String time, alertMessage;
+    private String time, country, alertMessage;
 
     public States() {
     }
@@ -22,14 +22,22 @@ public class States {
         this.newConfirmed = newConfirmed;
         this.newDeath = newDeath;
         this.activeCase = activeCase;
-        // format time
-        try {
-            SimpleDateFormat input = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault());
-            Date d = input.parse(time);
-            this.time = new SimpleDateFormat("HH:mm:ss dd-MM-yyyy", Locale.getDefault()).format(d);
-        } catch (ParseException e) {
-            Log.e("States", "dateParseError", e);
-        }
+        this.time = time;
+    }
+
+    @Override
+    public String toString() {
+        return "States{" +
+                "totalConfirmed=" + totalConfirmed +
+                ", totalDeath=" + totalDeath +
+                ", totalRecovered=" + totalRecovered +
+                ", newConfirmed=" + newConfirmed +
+                ", newDeath=" + newDeath +
+                ", activeCase=" + activeCase +
+                ", time='" + time + '\'' +
+                ", country='" + country + '\'' +
+                ", alertMessage='" + alertMessage + '\'' +
+                '}';
     }
 
     public int getTotalConfirmed() {
@@ -84,8 +92,29 @@ public class States {
         return time;
     }
 
+    public String getTimeFormatted() {
+        // format time
+        String res = "";
+        try {
+            SimpleDateFormat input = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault());
+            Date d = input.parse(time);
+            res = new SimpleDateFormat("HH:mm:ss dd-MM-yyyy", Locale.getDefault()).format(d);
+        } catch (ParseException e) {
+            Log.e("States", "getTimeFormatted:dateParseError", e);
+        }
+        return res;
+    }
+
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public String getAlertMessage() {
