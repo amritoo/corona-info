@@ -8,9 +8,12 @@ The purpose of CoronaInfo app is to be updated on the current status of COVID-19
 CoronaInfo shows latest information on corona virus. Specifically it does -
 
 - Allow to set home country.
-- At start shows detailed latest information on selected home country and also global status. ![Home menu](https://github.com/amritoo/corona-info/blob/master/images/home.jpg)
-- Can also show all other countries information on 'country' option. Also shows travel warning of the selected country. ![Country menu](https://github.com/amritoo/corona-info/blob/master/images/country.jpg)
-- Show latest news on corona virus published on various newspaper and also gives the option to view the news using any browser. ![News](https://github.com/amritoo/corona-info/blob/master/images/news.jpg)
+- At start shows detailed latest information on selected home country and also global status.
+![Home menu](https://github.com/amritoo/corona-info/blob/master/images/home.jpg)
+- Can also show all other countries information on 'country' option. Also shows travel warning of the selected country.
+![Country menu](https://github.com/amritoo/corona-info/blob/master/images/country.jpg)
+- Show latest news on corona virus published on various newspaper and also gives the option to view the news using any browser.
+![News](https://github.com/amritoo/corona-info/blob/master/images/news.jpg)
 - Support light and dark mode.
 - Save the latest data including news on the device so that one can view everything offline as well.
 
