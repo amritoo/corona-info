@@ -1,5 +1,6 @@
-package app.coronainfo.coronainfo;
+package app.coronainfo.coronainfo.ui.home;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,11 +11,14 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.textview.MaterialTextView;
 
-import static android.content.Context.MODE_PRIVATE;
+import app.coronainfo.coronainfo.Manager;
+import app.coronainfo.coronainfo.R;
+import app.coronainfo.coronainfo.model.Constants;
+import app.coronainfo.coronainfo.model.States;
 
 public class HomeFragment extends Fragment {
 
-    private MaterialTextView mConfirmedCTV, mDeathCTV, mTotalConfirmedCTV, mTotalDeathCTV, mTotalRecoverCTV, mActiveCTV,
+    private MaterialTextView mCountryName, mConfirmedCTV, mDeathCTV, mTotalConfirmedCTV, mTotalDeathCTV, mTotalRecoverCTV, mActiveCTV,
             mConfirmedGTV, mDeathGTV, mTotalConfirmedGTV, mTotalDeathGTV, mTotalRecoverGTV, mActiveGTV, mDateTV;
 
     public HomeFragment() {
@@ -36,6 +40,7 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        mCountryName = view.findViewById(R.id.home_country_textView);
         mConfirmedCTV = view.findViewById(R.id.country_confirmed_textView);
         mDeathCTV = view.findViewById(R.id.country_death_textView);
         mTotalConfirmedCTV = view.findViewById(R.id.country_total_confirmed_textView);
@@ -59,26 +64,27 @@ public class HomeFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-        SharedPreferences preferences = getContext().getSharedPreferences(Constants.PREFERENCE_FILE_NAME, MODE_PRIVATE);
+        SharedPreferences preferences = getContext().getSharedPreferences(Constants.PREFERENCE_FILE_NAME, Context.MODE_PRIVATE);
         String countryCode = preferences.getString(Constants.HOME_COUNTRY_CODE, "BD");
 
-        States country = new Manager(getContext()).getCountryStates(countryCode);
-//        mConfirmedCTV.setText(country.getNewConfirmed());
-//        mDeathCTV.setText(country.getNewDeath());
-//        mTotalConfirmedCTV.setText(country.getTotalConfirmed());
-//        mTotalDeathCTV.setText(country.getTotalDeath());
-//        mTotalRecoverCTV.setText(country.getTotalRecovered());
-//        mActiveCTV.setText(country.getActiveCase());
-//
-//        States global = new Manager(getContext()).getWorldStates();
-//        mConfirmedGTV.setText(global.getNewConfirmed());
-//        mDeathGTV.setText(global.getNewDeath());
-//        mTotalConfirmedGTV.setText(global.getTotalConfirmed());
-//        mTotalDeathGTV.setText(global.getTotalDeath());
-//        mTotalRecoverGTV.setText(global.getTotalRecovered());
-//        mActiveGTV.setText(global.getActiveCase());
-//
-//        mDateTV.setText(global.getTime());
+        States country = new Manager().getCountryStates(countryCode);
+        mCountryName.setText(country.getCountry());
+        mConfirmedCTV.setText(String.valueOf(country.getNewConfirmed()));
+        mDeathCTV.setText(String.valueOf(country.getNewDeath()));
+        mTotalConfirmedCTV.setText(String.valueOf(country.getTotalConfirmed()));
+        mTotalDeathCTV.setText(String.valueOf(country.getTotalDeath()));
+        mTotalRecoverCTV.setText(String.valueOf(country.getTotalRecovered()));
+        mActiveCTV.setText(String.valueOf(country.getActiveCase()));
+
+        States global = new Manager().getGlobalStates();
+        mConfirmedGTV.setText(String.valueOf(global.getNewConfirmed()));
+        mDeathGTV.setText(String.valueOf(global.getNewDeath()));
+        mTotalConfirmedGTV.setText(String.valueOf(global.getTotalConfirmed()));
+        mTotalDeathGTV.setText(String.valueOf(global.getTotalDeath()));
+        mTotalRecoverGTV.setText(String.valueOf(global.getTotalRecovered()));
+        mActiveGTV.setText(String.valueOf(global.getActiveCase()));
+
+        mDateTV.setText(global.getTimeFormatted());
     }
 
 }
