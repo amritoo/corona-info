@@ -1,4 +1,4 @@
-package app.coronainfo.coronainfo;
+package app.coronainfo.coronainfo.ui.news;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -14,9 +14,12 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textview.MaterialTextView;
 import com.squareup.picasso.Picasso;
 
+import app.coronainfo.coronainfo.R;
+import app.coronainfo.coronainfo.model.Constants;
+
 public class NewsActivity extends AppCompatActivity {
 
-    private String TAG = "NewsActivity";
+    private static final String TAG = "NewsActivity";
 
     private MaterialToolbar mToolbar;
     private ImageView mImageView;
@@ -78,6 +81,8 @@ public class NewsActivity extends AppCompatActivity {
 
         if (date == null || date.length() == 0) {
             date = "Unknown";
+        } else {
+            date = formatDate(date);
         }
         mDateTextView.setText(date);
 
@@ -90,6 +95,13 @@ public class NewsActivity extends AppCompatActivity {
             Picasso.get().load(imageUrl).placeholder(R.drawable.ic_image_256).into(mImageView);
             mImageView.setVisibility(View.VISIBLE);
         }
+    }
+
+    private String formatDate(String date) {
+        String day = date.substring(8, 10);
+        String month = date.substring(5, 7);
+        String year = date.substring(0, 4);
+        return String.format("%s-%s-%s", day, month, year);
     }
 
 }

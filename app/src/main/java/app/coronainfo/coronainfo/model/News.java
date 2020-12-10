@@ -1,11 +1,6 @@
 package app.coronainfo.coronainfo.model;
 
-import android.util.Log;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
+import androidx.annotation.NonNull;
 
 public class News {
 
@@ -22,6 +17,7 @@ public class News {
         this.description = description;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "News{" +
@@ -59,18 +55,6 @@ public class News {
 
     public String getDate() {
         return date;
-    }
-
-    public String getDateFormatted() {
-        String res = "";
-        try {
-            SimpleDateFormat input = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault());
-            Date d = input.parse(date);
-            res = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(d);
-        } catch (ParseException e) {
-            Log.e("News", "getDateFormatted:dateParseError", e);
-        }
-        return res;
     }
 
     public void setDate(String date) {

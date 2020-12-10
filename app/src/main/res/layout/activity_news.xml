@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".NewsActivity">
+    tools:context=".ui.news.NewsActivity">
 
     <!--  Toolbar  -->
     <com.google.android.material.appbar.AppBarLayout
@@ -53,6 +53,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/text_published_at"
+                    android:textStyle="bold"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
 
                 <com.google.android.material.textview.MaterialTextView
@@ -79,9 +80,8 @@
             <!--  Description  -->
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/news_description_textView"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginVertical="@dimen/activity_vertical_margin"
                 android:text="@string/text_description"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body2" />
