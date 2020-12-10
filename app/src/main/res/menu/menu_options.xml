@@ -18,12 +18,8 @@
         android:title="Settings"
         android:orderInCategory="4" />
     <item
-        android:id="@+id/menu_help"
-        android:title="Help"
-        android:orderInCategory="5" />
-    <item
         android:id="@+id/menu_about"
         android:title="About"
-        android:orderInCategory="6" />
+        android:orderInCategory="5" />
 
 </menu>
