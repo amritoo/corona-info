@@ -1,4 +1,4 @@
-package app.coronainfo.coronainfo;
+package app.coronainfo.coronainfo.ui;
 
 import android.os.Bundle;
 import android.view.View;
@@ -6,6 +6,8 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.appbar.MaterialToolbar;
+
+import app.coronainfo.coronainfo.R;
 
 public class AboutActivity extends AppCompatActivity {
 
