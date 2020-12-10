@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".ui.country.CountryActivity">
+
+    <!--  Toolbar  -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/country_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:navigationIcon="@drawable/ic_arrow_back_24"
+            app:title="@string/title_text_country_states"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/activity_vertical_margin"
+            android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <!--  Country name  -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/country_textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginVertical="@dimen/activity_vertical_margin"
+                android:text="@string/text_country"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5" />
+
+            <!--  New Confirmed  -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/activity_vertical_margin"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Confirmed:"
+                    android:textStyle="bold"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/confirmed_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+                    android:text="@string/text_unknown"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+            </LinearLayout>
+
+            <!--  New Deaths  -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/activity_vertical_margin"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Deaths:"
+                    android:textStyle="bold"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/death_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+                    android:text="@string/text_unknown"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+            </LinearLayout>
+
+            <!--  Total Confirmed  -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/activity_vertical_margin"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total Confirmed:"
+                    android:textStyle="bold"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/total_confirmed_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+                    android:text="@string/text_unknown"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+            </LinearLayout>
+
+            <!--  Total Deaths  -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/activity_vertical_margin"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total Deaths:"
+                    android:textStyle="bold"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/total_death_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+                    android:text="@string/text_unknown"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+            </LinearLayout>
+
+            <!--  Total Recovered  -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/activity_vertical_margin"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total Recovered:"
+                    android:textStyle="bold"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/total_recovered_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+                    android:text="@string/text_unknown"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+            </LinearLayout>
+
+            <!--  Active Cases  -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/activity_vertical_margin"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Active Cases:"
+                    android:textStyle="bold"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/active_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+                    android:text="@string/text_unknown"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+            </LinearLayout>
+
+            <!--  Travel Warning  -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/activity_vertical_margin"
+                android:orientation="vertical">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Travel Warning:"
+                    android:textStyle="bold"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/warning_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_unknown"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+            </LinearLayout>
+
+            <!--  date  -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/date_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_vertical_large"
+                android:layout_gravity="end"
+                android:text="@string/text_date"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
