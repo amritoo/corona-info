@@ -9,7 +9,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import app.coronainfo.coronainfo.model.Constants;
 import app.coronainfo.coronainfo.model.News;
@@ -83,6 +85,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
     }
 
     public boolean addAlertToStates(String countryCode, String alert) {
+        alert = alert.replace("|", "");
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(Constants.TABLE_COLUMN_ALERT, alert);
@@ -135,6 +138,34 @@ public class DatabaseManager extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return states;
+    }
+
+    public List<States> getAllCountryStates() {
+        List<States> statesList = null;
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM " + Constants.TABLE_STATES;
+        Cursor cursor = db.rawQuery(query, null);
+
+        if (cursor.moveToFirst()) {
+            statesList = new ArrayList<>();
+            do {
+                States states = new States();
+                states.setCountry(cursor.getString(1));
+                states.setTime(cursor.getString(2));
+                states.setTotalConfirmed(cursor.getInt(3));
+                states.setTotalDeath(cursor.getInt(4));
+                states.setTotalRecovered(cursor.getInt(5));
+                states.setNewConfirmed(cursor.getInt(6));
+                states.setNewDeath(cursor.getInt(7));
+                states.setActiveCase(cursor.getInt(8));
+                states.setAlertMessage(cursor.getString(9));
+                statesList.add(states);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+        return statesList;
     }
 
     public States getGlobalStates() {
@@ -195,6 +226,27 @@ public class DatabaseManager extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return newsList;
+    }
+
+
+    public Map<String, String> getCountryCode() {
+        Map<String, String> codeMap = null;
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT " + Constants.TABLE_COLUMN_CODE + ", " + Constants.TABLE_COLUMN_COUNTRY + " FROM " + Constants.TABLE_STATES;
+        Cursor cursor = db.rawQuery(query, null);
+
+        if (cursor.moveToFirst()) {
+            codeMap = new HashMap<>();
+            do {
+                String code = cursor.getString(0);
+                String country = cursor.getString(1);
+                codeMap.put(country, code);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+        return codeMap;
     }
 
 }

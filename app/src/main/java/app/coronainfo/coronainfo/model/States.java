@@ -102,7 +102,7 @@ public class States {
         } catch (ParseException e) {
             Log.e("States", "getTimeFormatted:dateParseError", e);
         }
-        return res;
+        return "Last updated at:\n" + res;
     }
 
     public void setTime(String time) {
