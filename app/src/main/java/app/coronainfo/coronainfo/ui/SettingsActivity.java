@@ -1,4 +1,4 @@
-package app.coronainfo.coronainfo;
+package app.coronainfo.coronainfo.ui;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -16,21 +16,31 @@ import androidx.appcompat.app.AppCompatDelegate;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.switchmaterial.SwitchMaterial;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
+
+import app.coronainfo.coronainfo.Manager;
+import app.coronainfo.coronainfo.R;
+import app.coronainfo.coronainfo.model.Constants;
 
 public class SettingsActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    private final String TAG = "SettingsActivity";
+    private static final String TAG = "SettingsActivity";
     private SharedPreferences preferences;
     private boolean first;
     private List<String> countries;
+    private Map<String, String> countryCodeMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        this.countries = new Manager(this).getAllCountryList();
+        this.countryCodeMap = new Manager().getCountryCodes();
+        this.countries = new ArrayList<>(countryCodeMap.keySet());
+        Collections.sort(countries);
         this.preferences = getSharedPreferences(Constants.PREFERENCE_FILE_NAME, MODE_PRIVATE);
 
         MaterialToolbar toolbar = findViewById(R.id.settings_toolbar);
@@ -72,8 +82,13 @@ public class SettingsActivity extends AppCompatActivity implements AdapterView.O
     private int getPosition() {
         first = true;
         String saved = preferences.getString(Constants.HOME_COUNTRY_CODE, "Default");
-        int pos = countries.indexOf(saved);
-        return Math.max(pos, 0);
+        for (String key : countryCodeMap.keySet()) {
+            assert saved != null;
+            if (saved.equals(countryCodeMap.get(key))) {
+                return countries.indexOf(key);
+            }
+        }
+        return 0;
     }
 
     @Override
@@ -82,7 +97,8 @@ public class SettingsActivity extends AppCompatActivity implements AdapterView.O
             first = false;
         } else {
             SharedPreferences.Editor editor = preferences.edit();
-            editor.putString(Constants.HOME_COUNTRY_CODE, String.valueOf(parent.getItemAtPosition(position)));
+            String country = String.valueOf(parent.getItemAtPosition(position));
+            editor.putString(Constants.HOME_COUNTRY_CODE, countryCodeMap.get(country));
             editor.apply();
             Log.i(TAG, "saveHomeCountry:saved");
         }
