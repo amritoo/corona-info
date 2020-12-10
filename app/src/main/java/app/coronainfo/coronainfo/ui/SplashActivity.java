@@ -1,4 +1,4 @@
-package app.coronainfo.coronainfo;
+package app.coronainfo.coronainfo.ui;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,6 +7,10 @@ import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+
+import app.coronainfo.coronainfo.Manager;
+import app.coronainfo.coronainfo.R;
+import app.coronainfo.coronainfo.model.Constants;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -24,6 +28,17 @@ public class SplashActivity extends AppCompatActivity {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
 
+        // update database
+        Manager.initDatabase(SplashActivity.this);
+        Manager.updateWorldStates(SplashActivity.this);
+        Manager.updateStates(SplashActivity.this);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
         Handler handler = new Handler(this.getMainLooper());
         handler.postDelayed(new Runnable() {
             @Override
@@ -34,6 +49,5 @@ public class SplashActivity extends AppCompatActivity {
                 finish();
             }
         }, Constants.SPLASH_OUT_TIME);
-
     }
 }
